@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/default.conf
+      - ./:/var/www/html
+    depends_on:
+      - php-fpm
+
+  php-fpm:
+    build: .
+    volumes:
+      - ./:/var/www/html
+
+  memcached:
+    image: memcached:latest
+    ports:
+      - "11211:11211"
