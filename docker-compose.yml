@@ -5,16 +5,10 @@ services:
     image: nginx:latest
     ports:
       - "80:80"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/default.conf
-      - ./:/var/www/html
-    depends_on:
-      - php-fpm
 
-  php-fpm:
-    build: .
-    volumes:
-      - ./:/var/www/html
+  app:
+    build: 
+      dockerfile: ./php/Dockerfile
 
   memcached:
     image: memcached:latest
