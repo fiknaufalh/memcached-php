@@ -1,7 +1,7 @@
-# Gunakan image PHP-FPM resmi
+# Use the official PHP 8.1 image
 FROM php:8.1-fpm-bullseye
 
-# Instal dependensi yang diperlukan
+# Install required dependencies
 RUN apt-get update && apt-get install -y \
     libmemcached-dev \
     zlib1g-dev \
@@ -11,5 +11,5 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /var/www/html
 
-# Salin file aplikasi ke dalam container
+# Copy source code to working directory
 COPY . /var/www/html
