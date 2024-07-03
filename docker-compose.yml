@@ -23,3 +23,18 @@ services:
     container_name: memcached
     ports:
       - "11211:11211"
+
+  memcached2:
+    image: memcached:latest
+    ports:
+      - "11212:11211"
+
+  memcached3:
+    image: memcached:latest
+    ports:
+      - "11213:11211"
+
+  memcached4:
+    image: memcached:latest
+    ports:
+      - "11214:11211"
